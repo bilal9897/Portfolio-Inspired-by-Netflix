@@ -1,7 +1,7 @@
 🎬 Netflix-Inspired Portfolio Website
 
 A modern, responsive portfolio website inspired by Netflix’s cinematic UI.
-This multi-page portfolio showcases my profile, skills, projects, certifications, and resume through a smooth, visually appealing layout enhanced with a dark theme and video background.
+This portfolio highlights my profile, skills, projects, certifications, and resume using a cinematic layout and smooth dark theme.
 
 ⭐ Features
 
@@ -22,10 +22,30 @@ This multi-page portfolio showcases my profile, skills, projects, certifications
 ⚡ No external frameworks — Pure HTML + CSS + JavaScript
 
 🛠 Tech Stack
-Category	Technology
-Languages	HTML, CSS (Internal), JavaScript
-Media	JPG / PNG images, MP4 video, PDF resume
-Tools	VS Code, Git, GitHub
+Languages
+
+HTML
+
+CSS (Internal)
+
+JavaScript
+
+Media
+
+JPG / PNG images
+
+MP4 video
+
+PDF resume
+
+Tools
+
+VS Code
+
+Git
+
+GitHub
+
 
 📂 Project Structure
 portfolio/
@@ -61,45 +81,41 @@ portfolio/
 📄 Pages Overview
 🔹 Home (index.html)
 
-Hero section with video
+Background video
 
 Navigation bar
 
-Intro content
+Modern intro section
 
-🔹 Profile (profile.html)
+🔹 Profile Page (profile.html)
 
-Personal summary
+About me
 
-Background information
+Background info
 
-Resume link
+Resume download
 
-🔹 Skills (skill.html)
+🔹 Skills Page (skill.html)
 
-Skill categories
+Skill cards
 
-Interactive card layout
+Clean layout
 
-🔹 Projects (project.html)
+🔹 Projects Page (project.html)
 
-Project cards
-
-Image previews
+Project thumbnails
 
 Description sections
 
 🔹 Hire Me (hire.html)
 
-Contact options
+Contact info
 
 Call-to-action
 
-🎥 Media Integration Examples
+🎥 Media Integration Example
 <video src="assets/main.mp4" autoplay muted loop></video>
-
-<img src="assets/skillscard.jpg" alt="Skills Card" />
-
+<img src="assets/skillscard.jpg" alt="Skill Card" />
 <a href="assets/BilalResume (1).pdf" download>Download Resume</a>
 
 🚀 How to Run Locally
@@ -109,11 +125,9 @@ Just open:
 index.html
 
 
-No installation required.
+No setup required.
 
 🌐 Deployment Options
-
-You can deploy this project easily on:
 
 GitHub Pages
 
@@ -122,8 +136,6 @@ Netlify
 Vercel
 
 Firebase Hosting
-
-
 
 📬 Contact
 
@@ -135,4 +147,4 @@ GitHub: https://github.com/bilal9897
 
 ❤️ Acknowledgment
 
-Designed with inspiration from Netflix’s modern UI/UX and built using clean, maintainable code.
+Inspired by Netflix's cinematic UI and built using clean, modern web design principles.
