@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilal Junior Developer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="prof.html">
+    <link rel="stylesheet" href="skill.html">
+    <link rel="stylesheet" href="project.html">
+    <link rel="stylesheet" href="hire.html">
+    <link rel="stylesheet" href="home.html">
+    
+    <style>
+        /* Apply the Inter font family */
+        body {
+            font-family: 'Times New Roman', Times, serif;
+        }
+        /* Simple scrollbar for dark mode */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000000; /* gray-900 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0f1113; /* gray-600 */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #000000; /* gray-500 */
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Header & Navigation -->
+   
+    <div class="glow-container">
+        <!-- Navigation Bar -->
+        <header class="text-white p-4 border-b border-gray-800 shadow-lg" style="background-color: #121212;">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class="text-xl font-bold text-red-500 tracking-wider">BILAL</div>
+                <nav class="flex space-x-6">
+                      <a href="home.html" class="text-red-500 border-b-2 border-red-500 pb-1 font-semibold interactive-element">Home</a>
+                    <a href="prof.html" class="text-gray-400 hover:text-white transition interactive-element">Professional</a>
+                    <a href="skill.html" class= "text-gray-400 hover:text-white transition interactive-element">Skills</a>
+                    <a href="project.html" class="text-gray-400 hover:text-white transition interactive-element">Projects</a>
+                    <a href="hire.html" class="text-gray-400 hover:text-white transition interactive-element">Hire Me</a>
+                </nav>
+                <!-- Netflix-Style Profile Section -->
+<div class="relative group cursor-pointer">
+  <!-- Profile Icon -->
+  <div class="w-10 h-10 rounded-md overflow-hidden border-2 border-transparent group-hover:border-red-600 transition-all duration-300 shadow-md group-hover:shadow-red-600/50">
+    <img src="assets/logo.jpg" alt="Profile" class="w-full h-full object-cover">
+  </div>
+
+  <!-- Animated Red Glow Ring -->
+  <span class="absolute inset-0 rounded-md ring-2 ring-transparent group-hover:ring-red-600 group-hover:scale-110 transition-all duration-500"></span>
+
+  <!-- Hover Menu -->
+  <div class="absolute right-0 mt-3 w-52 bg-[#141414] rounded-lg opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 border border-gray-800 shadow-lg z-50">
+    <ul class="py-2 text-gray-300">
+      <li><a href="prof.html" class="block px-4 py-2 hover:bg-red-600 hover:text-white transition">My Profile</a></li>
+      <li><a href="project.html" class="block px-4 py-2 hover:bg-red-600 hover:text-white transition">Projects</a></li>
+      <li><a href="hire.html" class="block px-4 py-2 hover:bg-red-600 hover:text-white transition">Hire Me</a></li>
+      <li><a href="index.html" class="block px-4 py-2 hover:bg-red-600 hover:text-white transition">Logout</a></li>
+    </ul>
+  </div>
+</div>
+            </div>
+                <!-- Mobile Menu Button (optional) -->
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" aria-controls="mobile-menu" aria-expanded="false" id="mobile-menu-button">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Icon for menu (hamburger) -->
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <!-- Icon for close (X) -->
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+      
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+  <section class="relative h-[60vh] min-h-[400px] md:h-[70vh] text-white">
+    
+    <!-- Background Video -->
+    <div class="absolute inset-0">
+        <video autoplay loop muted playsinline class="w-full h-full object-cover">
+            <source src="assets/main.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-black/50"></div>
+
+    <!-- Hero Content -->
+    <div class="absolute bottom-10 left-10 z-10 max-w-3xl text-left">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Bilal-Junior Developer</h2>
+        <p class="text-lg md:text-xl text-gray-200 mb-8 leading-relaxed">
+            Dynamic and results-driven Senior Software Engineer with 5+ years in full-stack development,
+            specializing in Java and modern web technologies. Proven track record of delivering scalable
+            and efficient enterprise-level solutions.
+        </p>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-4">
+
+            <!-- Resume Button -->
+            <a href="assets/BilalResume (1).pdf" download
+               class="inline-flex items-center justify-center px-6 py-3 bg-white text-gray-900 font-semibold rounded-lg shadow-md hover:bg-gray-200 transition duration-300 ease-in-out">
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                          clip-rule="evenodd"></path>
+                </svg>
+                Download Resume
+            </a>
+
+            <!-- LinkedIn Button -->
+            <a href="https://www.linkedin.com/in/bilal-6190ab292/" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center justify-center px-6 py-3 bg-gray-700/50 text-white font-semibold rounded-lg backdrop-blur-sm border border-gray-600 hover:bg-[#0077b5]/80 transition duration-300 ease-in-out">
+                LinkedIn
+            </a>
+
+        </div>
+    </div>
+</section>
+
+
+
+        <!-- "Top Picks for Recruiter" Section -->
+        <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <h2 class="text-3xl font-bold mb-8 text-white">Today's Top Picks for recruiter</h2>
+            
+            <!-- Grid for Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <!-- Card 1: Work Permit -->
+                <a href="#" class="group relative h-48 flex items-end p-4 rounded-lg overflow-hidden shadow-lg transform transition duration-300 ease-in-out hover:scale-105">
+                    <img src="assets/skillscard.jpg" alt="Work Permit" class="absolute inset-0 w-full h-full object-cover transition duration-300 ease-in-out group-hover:opacity-90" onerror="this.src='https://placehold.co/400x400/81e6d9/2c7a7b?text=Image+Error'">
+                    <div class="absolute inset-0 bg-black/60 group-hover:bg-black/70 transition duration-300 ease-in-out"></div>
+                    <h3 class="relative text-xl font-semibold text-white">Work Permit</h3>
+                </a>
+                
+                <!-- Card 2: Skills -->
+                <a href="skill.html" class="group relative h-48 flex items-end p-4 rounded-lg overflow-hidden shadow-lg transform transition duration-300 ease-in-out hover:scale-105">
+                    <img src="assets/work.jpg" alt="Skills" class="absolute inset-0 w-full h-full object-cover transition duration-300 ease-in-out group-hover:opacity-90" onerror="this.src='https://placehold.co/400x400/d6bcfa/553c9a?text=Image+Error'">
+                    <div class="absolute inset-0 bg-black/60 group-hover:bg-black/70 transition duration-300 ease-in-out"></div>
+                    <h3 class="relative text-xl font-semibold text-white">Skills</h3>
+                </a>
+
+                <!-- Card 3: Experience -->
+                <a href="#" class="group relative h-48 flex items-end p-4 rounded-lg overflow-hidden shadow-lg transform transition duration-300 ease-in-out hover:scale-105">
+                    <img src="assets/skillscard.jpg" alt="Experience" class="absolute inset-0 w-full h-full object-cover transition duration-300 ease-in-out group-hover:opacity-90" onerror="this.src='https://placehold.co/400x400/fbb6ce/97266d?text=Image+Error'">
+                    <div class="absolute inset-0 bg-black/60 group-hover:bg-black/70 transition duration-300 ease-in-out"></div>
+                    <h3 class="relative text-xl font-semibold text-white">Experience</h3>
+                </a>
+
+                <!-- Card 4: Certifications -->
+                <a href="#" class="group relative h-48 flex items-end p-4 rounded-lg overflow-hidden shadow-lg transform transition duration-300 ease-in-out hover:scale-105">
+                    <img src="assets/certificationcard.jpg" alt="Certifications" class="absolute inset-0 w-full h-full object-cover transition duration-300 ease-in-out group-hover:opacity-90" onerror="this.src='https://placehold.co/400x400/fbd38d/b7791f?text=Image+Error'">
+                    <div class="absolute inset-0 bg-black/60 group-hover:bg-black/70 transition duration-300 ease-in-out"></div>
+                    <h3 class="relative text-xl font-semibold text-white">Certifications</h3>
+                </a>
+
+                <!-- Card 5: Recommendations -->
+                <a href="#" class="group relative h-48 flex items-end p-4 rounded-lg overflow-hidden shadow-lg transform transition duration-300 ease-in-out hover:scale-105">
+                    <img src="assets/recommcard.jpg" alt="Recommendations" class="absolute inset-0 w-full h-full object-cover transition duration-300 ease-in-out group-hover:opacity-90" onerror="this.src='https://placehold.co/400x400/c6f6d5/2f855a?text=Image+Error'">
+                    <div class="absolute inset-0 bg-black/60 group-hover:bg-black/70 transition duration-300 ease-in-out"></div>
+                    <h3 class="relative text-xl font-semibold text-white">Recommendations</h3>
+                </a>
+
+                <!-- Card 6: Projects -->
+                <a href="project.html" class="group relative h-48 flex items-end p-4 rounded-lg overflow-hidden shadow-lg transform transition duration-300 ease-in-out hover:scale-105">
+                    <img src="assets/projcard.jpg" alt="Projects" class="absolute inset-0 w-full h-full object-cover transition duration-300 ease-in-out group-hover:opacity-90" onerror="this.src='https://placehold.co/400x400/bee3f8/2c5282?text=Image+Error'">
+                    <div class="absolute inset-0 bg-black/60 group-hover:bg-black/70 transition duration-300 ease-in-out"></div>
+                    <h3 class="relative text-xl font-semibold text-white">Projects</h3>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    
+
+
+    <script>
+        // JavaScript for mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerIcon = menuButton.querySelector('svg.block');
+        const closeIcon = menuButton.querySelector('svg.hidden');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            hamburgerIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
+
+        // Add any other future JavaScript interactivity here.
+        console.log("Portfolio website clone loaded.");
+    </script>
+
+</body>
+</html>

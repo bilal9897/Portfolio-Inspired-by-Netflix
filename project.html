@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Clone</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #111111;
+        }
+
+        /* Card border */
+        .card-border {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        /* Hover glow effect for cards */
+        .card-border:hover {
+            border-color: #ff2d2d;
+            box-shadow: 0 0 25px rgba(255, 45, 45, 0.4);
+            transform: translateY(-8px);
+        }
+
+        /* Red button hover animation */
+        .btn-red {
+            background-color: #ff2d2d;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-red:hover {
+            background-color: #ff4444;
+            box-shadow: 0 0 15px rgba(255, 45, 45, 0.6);
+            transform: scale(1.05);
+        }
+
+        /* Gray button hover animation */
+        .btn-gray {
+            background-color: #1f1f1f;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-gray:hover {
+            background-color: #2c2c2c;
+            box-shadow: 0 0 10px rgba(255, 45, 45, 0.4);
+            transform: scale(1.05);
+        }
+
+        /* Subtle image zoom on hover */
+        .card-border img {
+            transition: transform 0.5s ease;
+        }
+
+        .card-border:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="text-white">
+
+    <!-- Navigation Bar -->
+    <header class="text-white p-4 border-b border-gray-800 shadow-lg bg-[#121212]">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-xl font-bold text-red-500 tracking-wider">BILAL</div>
+            <nav class="flex space-x-6">
+                <a href="home.html" class="text-gray-400 hover:text-white transition">Home</a>
+                <a href="prof.html" class="text-gray-400 hover:text-white transition">Professional</a>
+                <a href="skill.html" class="text-gray-400 hover:text-white transition">Skills</a>
+                <a href="project.html" class="text-red-500 border-b-2 border-red-500 pb-1 font-semibold">Projects</a>
+                <a href="hire.html" class="text-gray-400 hover:text-white transition">Hire Me</a>
+            </nav>
+          <!-- Netflix-Style Profile Section -->
+<div class="relative group cursor-pointer">
+  <!-- Profile Icon -->
+  <div class="w-10 h-10 rounded-md overflow-hidden border-2 border-transparent group-hover:border-red-600 transition-all duration-300 shadow-md group-hover:shadow-red-600/50">
+    <img src="https://sp.yimg.com/ib/th/id/OIP.C--fsrAcKEKcVqqM4p8PMgAAAA?pid=Api&w=148&h=148&c=7&dpr=2&rs=1" alt="Profile" class="w-full h-full object-cover">
+  </div>
+
+  <!-- Animated Red Glow Ring -->
+  <span class="absolute inset-0 rounded-md ring-2 ring-transparent group-hover:ring-red-600 group-hover:scale-110 transition-all duration-500"></span>
+
+  <!-- Hover Menu -->
+  <div class="absolute right-0 mt-3 w-52 bg-[#141414] rounded-lg opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 border border-gray-800 shadow-lg z-50">
+    <ul class="py-2 text-gray-300">
+      <li><a href="prof.html" class="block px-4 py-2 hover:bg-red-600 hover:text-white transition">My Profile</a></li>
+      <li><a href="project.html" class="block px-4 py-2 hover:bg-red-600 hover:text-white transition">Projects</a></li>
+      <li><a href="hire.html" class="block px-4 py-2 hover:bg-red-600 hover:text-white transition">Hire Me</a></li>
+      <li><a href="index.html" class="block px-4 py-2 hover:bg-red-600 hover:text-white transition">Logout</a></li>
+    </ul>
+  </div>
+</div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="home" class="container mx-auto max-w-7xl px-4 py-12">
+        
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <!-- Project Card 1 -->
+                <article class="bg-[#1a1a1a] rounded-lg overflow-hidden card-border flex flex-col">
+                    <img src="assets/DiscoverIncredibleIndia.jpg" alt="Trip Planner" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-semibold text-red-500 mb-3">Discover Incredible India</h3>
+                        <p class="text-gray-300 text-sm mb-4 flex-grow">
+                           A travel exploration website that showcases the beauty, culture, and heritage of India through interactive visuals and guides.
+Developed using HTML, CSS, and JavaScript with a dynamic and responsive design for an immersive user experience.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-xs font-medium px-3 py-1 rounded-full">HTML5</span>
+                            <span class="bg-gray-700 text-xs font-medium px-3 py-1 rounded-full">CSS3</span>
+                        </div>
+                        <div class="flex justify-between mt-auto">
+                            <a href="https://github.com/yourusername/trip-planner" target="_blank"
+                               class="btn-gray text-white text-sm font-medium px-4 py-2 rounded-lg">GitHub</a>
+                            <a href="https://lovable.dev/projects/12ea6d5e-498d-4e8c-b15f-1e5551b095d2" target="_blank"
+                               class="btn-red text-white text-sm font-medium px-4 py-2 rounded-lg">Live Demo</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project Card 2 -->
+                <article class="bg-[#1a1a1a] rounded-lg overflow-hidden card-border flex flex-col">
+                    <img src="assets/elearning.png" alt="E-Learning Platform" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-semibold text-red-500 mb-3">E-Learning Platform</h3>
+                        <p class="text-gray-300 text-sm mb-4 flex-grow">
+                            An interactive web project for students to learn, take quizzes, and earn certificates.
+                            Built using pure HTML, CSS, and JavaScript for responsive performance.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-xs font-medium px-3 py-1 rounded-full">ReactJS</span>
+                            <span class="bg-gray-700 text-xs font-medium px-3 py-1 rounded-full">Java</span>
+                        </div>
+                        <div class="flex justify-between mt-auto">
+                            <a href="https://github.com/yourusername/e-learning" target="_blank"
+                               class="btn-gray text-white text-sm font-medium px-4 py-2 rounded-lg">GitHub</a>
+                            <a href="https://your-live-demo-link.com" target="_blank"
+                               class="btn-red text-white text-sm font-medium px-4 py-2 rounded-lg">Live Demo</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project Card 3 -->
+                <article class="bg-[#1a1a1a] rounded-lg overflow-hidden card-border flex flex-col">
+                    <img src="assets/potfoliocard.jpg" alt="Attendance Portal" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-semibold text-red-500 mb-3"> Portfolio Inspired by Netflix</h3>
+                        <p class="text-gray-300 text-sm mb-4 flex-grow">A responsive personal portfolio built with HTML, CSS, JavaScript,
+                             and  CSS. It showcases my skills, projects, and experience with a Netflix-inspired cinematic UI featuring
+                              smooth animations, video backgrounds, and interactive components.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-xs font-medium px-3 py-1 rounded-full">HTML5</span>
+                            <span class="bg-gray-700 text-xs font-medium px-3 py-1 rounded-full">CSS3</span>
+                            <span class="bg-gray-700 text-xs font-medium px-3 py-1 rounded-full">JavaScript</span>
+                        </div>
+                        <div class="flex justify-between mt-auto">
+                            <a href="#" target="_blank"
+                               class="btn-gray text-white text-sm font-medium px-4 py-2 rounded-lg">GitHub</a>
+                            <a href="#" target="_blank"
+                               class="btn-red text-white text-sm font-medium px-4 py-2 rounded-lg">Live Demo</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project Card 4 -->
+                <article class="bg-[#1a1a1a] rounded-lg overflow-hidden card-border flex flex-col">
+                    <img src="assets/eCommerce.jpeg" alt="E-Commerce Website" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-semibold text-red-500 mb-3">E-Commerce Website</h3>
+                        <p class="text-gray-300 text-sm mb-4 flex-grow">
+                            A complete online shopping website for browsing products, adding to cart, and checkout.
+                            Designed using HTML, CSS, and JavaScript for a seamless experience.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-xs font-medium px-3 py-1 rounded-full">HTML</span>
+                            <span class="bg-gray-700 text-xs font-medium px-3 py-1 rounded-full">ReactJS</span>
+                            <span class="bg-gray-700 text-xs font-medium px-3 py-1 rounded-full">PostgreSQL</span>
+                        </div>
+                        <div class="flex justify-between mt-auto">
+                            <a href="https://github.com/yourusername/ecommerce" target="_blank"
+                               class="btn-gray text-white text-sm font-medium px-4 py-2 rounded-lg">GitHub</a>
+                            <a href="https://your-live-demo-link.com" target="_blank"
+                               class="btn-red text-white text-sm font-medium px-4 py-2 rounded-lg">Live Demo</a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BILAL PORTFOLIO</title>
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif;}
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at center, #000 40%, #1a0000 100%);
+      overflow: hidden;
+      position: relative;
+      color: white;
+    }
+
+    .logo {
+      font-size: 5rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #e50914;
+      letter-spacing: 10px;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards, glowPulse 3s ease-in-out 2s infinite;
+      position: relative;
+      text-shadow: 0 0 25px rgba(229,9,20,0.6);
+      z-index: 3;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes glowPulse {
+      0% { text-shadow: 0 0 20px rgba(229,9,20,0.5); }
+      50% { text-shadow: 0 0 60px rgba(229,9,20,0.9); }
+      100% { text-shadow: 0 0 20px rgba(229,9,20,0.5); }
+    }
+
+    .beam {
+      position: absolute;
+      top: 0; left: -50%;
+      width: 200%; height: 100%;
+      background: radial-gradient(circle at center, rgba(229,9,20,0.3), transparent 70%);
+      animation: beamMove 3s linear forwards;
+      z-index: 1;
+    }
+
+    @keyframes beamMove {
+      0% { transform: translateX(-100%); opacity: 0; }
+      40% { opacity: 1; }
+      100% { transform: translateX(100%); opacity: 0; }
+    }
+
+    .subtitle {
+      position: absolute;
+      bottom: 12%;
+      font-size: 1.3rem;
+      letter-spacing: 3px;
+      color: #f2f2f2;
+      opacity: 0;
+      animation: fadeUp 2s ease 2s forwards;
+      z-index: 3;
+    }
+
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .fog {
+      position: absolute;
+      bottom: 0;
+      width: 200%;
+      height: 100%;
+      background: url('assets/index.jpg') repeat-x;
+      opacity: 0.3;
+      animation: fogMove 20s linear infinite;
+      z-index: 2;
+    }
+
+    @keyframes fogMove {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .particles span {
+      position: absolute;
+      display: block;
+      width: 6px;
+      height: 6px;
+      background: rgba(229, 9, 20, 0.8);
+      border-radius: 50%;
+      animation: float 8s linear infinite;
+    }
+
+    @keyframes float {
+      from { transform: translateY(100vh) scale(0.8); opacity: 0.8; }
+      to { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="beam"></div>
+  <div class="fog"></div>
+  <div class="particles" id="particles"></div>
+  <div class="logo">BILAL PORTFOLIO</div>
+  <div class="subtitle">Welcome to my digital universe...</div>
+
+  <script>
+    // Create floating red particles dynamically
+    const particlesContainer = document.getElementById('particles');
+    const particleCount = 50;
+
+    for (let i = 0; i < particleCount; i++) {
+      const span = document.createElement('span');
+      span.style.left = Math.random() * 100 + 'vw';
+      span.style.animationDuration = 5 + Math.random() * 10 + 's';
+      span.style.animationDelay = Math.random() * 5 + 's';
+      span.style.width = span.style.height = Math.random() * 6 + 'px';
+      particlesContainer.appendChild(span);
+    }
+
+
+    // Redirect with fade out
+    setTimeout(() => {
+      document.body.style.transition = 'opacity 1s ease';
+      document.body.style.opacity = '0';
+      setTimeout(() => {
+        window.location.href = 'profile.html';
+      }, 1000);
+    }, 5500);
+  </script>
+</body>
+</html>

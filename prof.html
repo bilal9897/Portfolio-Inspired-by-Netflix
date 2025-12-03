@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Journey - Netflix Style</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+     <link rel="stylesheet" href="prof.html">
+    <link rel="stylesheet" href="skill.html">
+    <link rel="stylesheet" href="project.html">
+    <link rel="stylesheet" href="hire.html">
+    <link rel="stylesheet" href="home.html">
+    <style>
+        /* Configure Tailwind for Netflix-like red accent and dark theme */
+        :root {
+            --netflix-red: #E50914;
+            --dark-card: #181818;
+            --dark-bg: #141414;
+        }
+
+        /* Custom dark background for the page */
+        body {
+            background-color: var(--dark-bg);
+            color: #E5E5E5; /* Light text for dark background */
+             font-family: 'Times New Roman', Times, serif;
+            overflow-x: hidden;
+        }
+
+        /* --- Timeline Styling --- */
+
+        .timeline-container {
+            position: relative;
+            padding-bottom: 3rem; /* Space below the last item */
+        }
+
+        /* The central red line (Timeline 'Wire') */
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background-color: var(--netflix-red);
+            /* Subtle glow effect for the line */
+            box-shadow: 0 0 10px rgba(229, 9, 20, 0.6); 
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+
+        /* Make line left-aligned on mobile */
+        @media (max-width: 768px) {
+            .timeline-container::before {
+                left: 20px;
+                transform: translateX(0);
+            }
+        }
+
+        /* Individual Timeline Point (the red dot) */
+        .timeline-point {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background-color: var(--netflix-red);
+            border-radius: 50%;
+            border: 3px solid var(--dark-bg);
+            box-shadow: 0 0 15px rgba(229, 9, 20, 0.8), 0 0 5px rgba(255, 255, 255, 0.3);
+            z-index: 20;
+            /* Default position for the dot */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.3s ease-in-out; /* Added transition for future point */
+        }
+
+        @media (max-width: 768px) {
+            .timeline-point {
+                left: 20px;
+                transform: translate(-50%, -50%);
+            }
+        }
+        
+        /* --- Card Styling and Hover/Focus Effects --- */
+
+        .timeline-card {
+            background-color: var(--dark-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+            cursor: pointer;
+            position: relative;
+            z-index: 30; /* Ensure card sits above the line */
+            /* Add a slightly inset shadow for depth */
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5), 0 8px 15px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Netflix-like Hover Effect: subtle lift and shadow glow */
+        .timeline-card:hover {
+            transform: scale(1.03); /* Slight zoom */
+            box-shadow: 0 0 20px var(--netflix-red); /* Red glow around the card */
+            border-color: var(--netflix-red);
+        }
+        
+        /* --- FUTURE CARD STYLING (The Next Episode) --- */
+
+        /* Animation for the "Future" card border pulse (Updated to Magenta) */
+        @keyframes pulse-border {
+            /* Using a strong magenta pulse */
+            0% { border-color: rgba(255, 0, 255, 0.4); box-shadow: 0 0 10px rgba(255, 0, 255, 0.4); }
+            50% { border-color: rgba(255, 0, 255, 0.8); box-shadow: 0 0 20px rgba(255, 0, 255, 0.8); }
+            100% { border-color: rgba(255, 0, 255, 0.4); box-shadow: 0 0 10px rgba(255, 0, 255, 0.4); }
+        }
+
+        .future-card {
+            /* Magenta border */
+            border: 2px solid rgba(255, 0, 255, 0.5);
+            animation: pulse-border 3s infinite alternate ease-in-out;
+        }
+
+        .future-point {
+            background-color: #FF00FF !important; /* Bright Magenta dot */
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.8), 0 0 5px rgba(255, 255, 255, 0.3) !important;
+        }
+
+
+        /* Mobile specific positioning for cards */
+        @media (max-width: 768px) {
+            .timeline-item {
+                /* Force mobile items to be left-aligned */
+                display: flex;
+                flex-direction: column;
+                margin-left: 50px; /* Offset to clear the timeline line */
+            }
+            .timeline-card {
+                transform: translateX(0) !important; /* Override desktop transforms */
+                margin-left: 0;
+            }
+            /* Time text placement adjustment on mobile */
+            .timeline-item .date-text {
+                text-align: left;
+                margin-bottom: 1rem;
+                margin-top: 0;
+            }
+        }
+
+        /* --- Entrance Animation (Intersection Observer) --- */
+        
+        .animated-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .animated-item.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom button styling (e.g., if we had a navigation element) */
+        .netflix-button {
+            background-color: var(--netflix-red);
+            transition: background-color 0.2s ease-in-out;
+        }
+        .netflix-button:hover {
+            background-color: #F82B35;
+        }
+
+
+
+
+
+
+
+/* Navigation Link Styles */
+.nav-link {
+  position: relative;
+  color: #9ca3af; /* Tailwind gray-400 */
+  font-weight: 500;
+  transition: all 0.4s ease;
+}
+
+/* Hover Effects */
+.nav-link:hover {
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+/* Animated Underline */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 2px;
+  background-color: #ef4444; /* Tailwind red-500 */
+  transition: width 0.4s ease, background-color 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Active Link Styling */
+.nav-link.active {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.nav-link.active::after {
+  width: 100%;
+  background-color: #ef4444;
+}
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body class="min-h-screen">
+
+
+
+    <div class="glow-container">
+        <!-- Navigation Bar -->
+        <header class="text-white p-4 border-b border-gray-800 shadow-lg" style="background-color: #121212;">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class="text-xl font-bold text-red-500 tracking-wider">BILAL</div>
+                <nav class="flex space-x-6">
+                    <a href="home.html" class="text-gray-400 hover:text-white transition interactive-element">Home</a>
+                    <a href="prof.html" class="text-red-500 border-b-2 border-red-500 pb-1 font-semibold interactive-element">Professional</a>
+                    <a href="skill.html" class= "text-gray-400 hover:text-white transition interactive-element">Skills</a>
+                    <a href="project.html" class="text-gray-400 hover:text-white transition interactive-element">Projects</a>
+                    <a href="hire.html" class="text-gray-400 hover:text-white transition interactive-element">Hire Me</a>
+                </nav>
+              <!-- Netflix-Style Profile Section -->
+<div class="relative group cursor-pointer">
+  <!-- Profile Icon -->
+  <div class="w-10 h-10 rounded-md overflow-hidden border-2 border-transparent group-hover:border-red-600 transition-all duration-300 shadow-md group-hover:shadow-red-600/50">
+    <img src="https://sp.yimg.com/ib/th/id/OIP.C--fsrAcKEKcVqqM4p8PMgAAAA?pid=Api&w=148&h=148&c=7&dpr=2&rs=1" alt="Profile" class="w-full h-full object-cover">
+  </div>
+
+  <!-- Animated Red Glow Ring -->
+  <span class="absolute inset-0 rounded-md ring-2 ring-transparent group-hover:ring-red-600 group-hover:scale-110 transition-all duration-500"></span>
+
+  <!-- Hover Menu -->
+  <div class="absolute right-0 mt-3 w-52 bg-[#141414] rounded-lg opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 border border-gray-800 shadow-lg z-50">
+    <ul class="py-2 text-gray-300">
+      <li><a href="prof.html" class="block px-4 py-2 hover:bg-red-600 hover:text-white transition">My Profile</a></li>
+      <li><a href="project.html" class="block px-4 py-2 hover:bg-red-600 hover:text-white transition">Projects</a></li>
+      <li><a href="hire.html" class="block px-4 py-2 hover:bg-red-600 hover:text-white transition">Hire Me</a></li>
+      <li><a href="index.html" class="block px-4 py-2 hover:bg-red-600 hover:text-white transition">Logout</a></li>
+    </ul>
+  </div>
+</div>
+            </div>
+
+
+
+    
+    <div id="content-professional" class="py-10 sm:py-16 text-white">
+        <!-- Header -->
+        <div class="flex flex-col items-center justify-center mb-12 px-4">
+            <i class="fas fa-calendar-alt text-5xl text-red-600 mb-4"></i>
+            <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white">
+                THE CAREER TIMELINE
+            </h2>
+            <p class="text-center text-gray-400 mt-2 text-lg font-light max-w-xl">
+                Streamed directly from my past. Dive into the episodes of my professional journey.
+            </p>
+        </div>
+
+        <!-- Timeline Content -->
+        <div class="timeline-container relative max-w-4xl mx-auto px-4">
+            
+            <!-- Timeline Item 1: Senior Developer (Currently Watching) -->
+            <div class="timeline-item flex flex-col md:flex-row-reverse mb-24 relative animated-item">
+                <div class="md:w-1/2 md:pl-10">
+                    <div class="timeline-card p-6 rounded-xl transform md:translate-x-6 border-2 border-red-600 shadow-xl">
+                        <span class="absolute top-0 right-6 text-sm bg-red-600 text-white px-3 py-1 rounded-bl-lg rounded-tr-lg font-bold"><i class="fas fa-play mr-2"></i>NOW PLAYING</span>
+                        <h3 class="text-2xl font-bold mt-4 mb-2 text-white">Senior Full Stack Developer</h3>
+                        <p class="text-red-400 mb-3 font-semibold">Tech Innovators Corp.</p>
+                        <ul class="list-disc ml-5 text-gray-300 space-y-1 text-sm">
+                            <li>Led a team of 4 engineers in migrating monolithic application to microservices architecture using Kubernetes and Docker.</li>
+                            <li>Developed high-traffic API endpoints using Node.js, achieving a **40% reduction in latency**.</li>
+                            <li>Mentored junior staff on best practices in React state management and testing.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pr-10 flex items-center justify-center md:justify-end">
+                    <div class="date-text absolute md:relative md:text-right text-center text-2xl font-bold text-red-500 md:mr-0 -mt-8 md:mt-0">
+                        Jan 2023 - Present
+                    </div>
+                </div>
+                <div class="timeline-point top-1/2"></div>
+            </div>
+
+            <!-- Timeline Item 2: Mid-Level Developer (Previous Episode) -->
+            <div class="timeline-item flex flex-col md:flex-row mb-24 relative animated-item">
+                <div class="md:w-1/2 md:pr-10">
+                    <div class="timeline-card p-6 rounded-xl transform md:-translate-x-6">
+                        <span class="absolute top-0 left-6 text-sm bg-gray-600 px-3 py-1 rounded-bl-lg rounded-tr-lg"><i class="fas fa-briefcase mr-2"></i>Episode 2</span>
+                        <h3 class="text-2xl font-bold mt-4 mb-2">Mid-Level Developer</h3>
+                        <p class="text-blue-400 mb-3">Digital Solutions Agency</p>
+                        <ul class="list-disc ml-5 text-gray-300 space-y-1 text-sm">
+                            <li>Implemented new features on client portals using Ruby on Rails and PostgreSQL.</li>
+                            <li>Improved deployment efficiency by **25%** by writing automated CI/CD scripts.</li>
+                            <li>Spearheaded integration of headless CMS for 5 major clients.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-10 flex items-center justify-center md:justify-start">
+                    <div class="date-text absolute md:relative md:text-left text-center text-2xl font-bold text-gray-300 md:ml-0 -mt-8 md:mt-0">
+                        Jul 2020 - Dec 2022
+                    </div>
+                </div>
+                <div class="timeline-point top-1/2"></div>
+            </div>
+
+            <!-- Timeline Item 3: Education (Origin Story) -->
+            <div class="timeline-item flex flex-col md:flex-row-reverse mb-24 relative animated-item">
+                <div class="md:w-1/2 md:pl-10">
+                    <div class="timeline-card p-6 rounded-xl transform md:translate-x-6">
+                        <span class="absolute top-0 right-6 text-sm bg-gray-600 px-3 py-1 rounded-bl-lg rounded-tr-lg"><i class="fas fa-graduation-cap mr-2"></i>Origin Story</span>
+                        <h3 class="text-2xl font-bold mt-4 mb-2">Bachelor of Computer Science</h3>
+                        <p class="text-blue-400 mb-3">University of Technology</p>
+                        <ul class="list-disc ml-5 text-gray-300 space-y-1 text-sm">
+                            <li>Data Structures, Algorithms, Web Development, Database Systems.</li>
+                            <li>Graduated with **honors**. Focused on software engineering principles and modern web technologies.</li>
+                            <li>Led multiple team projects and participated in hackathons.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pr-10 flex items-center justify-center md:justify-end">
+                    <div class="date-text absolute md:relative md:text-right text-center text-2xl font-bold text-gray-300 md:mr-0 -mt-8 md:mt-0">
+                        Sep 2016 - Jun 2020
+                    </div>
+                </div>
+                <div class="timeline-point top-1/2"></div>
+            </div>
+            
+            <!-- Timeline Item 4: The Next Episode (Left side) -->
+            <div class="timeline-item flex flex-col md:flex-row mb-24 relative animated-item">
+                <div class="md:w-1/2 md:pr-10">
+                    <div class="timeline-card p-6 rounded-xl transform md:-translate-x-6 future-card">
+                        <!-- Updated to use Fuchsia/Magenta classes -->
+                        <span class="absolute top-0 left-6 text-sm bg-fuchsia-800 text-white px-3 py-1 rounded-bl-lg rounded-tr-lg font-bold"><i class="fas fa-satellite-dish mr-2"></i>THE NEXT EPISODE</span>
+                        <!-- Updated text color to fuchsia-400 -->
+                        <h3 class="text-2xl font-bold mt-4 mb-2 text-fuchsia-400">Principal AI/ML Architect</h3>
+                        <p class="text-fuchsia-300 mb-3">Future Tech Initiative</p>
+                        <ul class="list-disc ml-5 text-gray-300 space-y-1 text-sm">
+                            <li>Design and deploy enterprise-level generative AI models.</li>
+                            <li>Establish the foundation for scalable, secure, and privacy-preserving data infrastructures.</li>
+                            <li>Mentor the next generation of engineers in MLOps and cloud-native application development.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-10 flex items-center justify-center md:justify-start">
+                    <!-- Updated date color to fuchsia-400 -->
+                    <div class="date-text absolute md:relative md:text-left text-center text-2xl font-bold text-fuchsia-400 md:ml-0 -mt-8 md:mt-0">
+                        2026 - Beyond
+                    </div>
+                </div>
+                <div class="timeline-point top-1/2 future-point"></div>
+            </div>
+
+        </div>
+        
+        <!-- New Section: Career Highlights (Based on the image) -->
+        <div class="max-w-4xl mx-auto px-4 mt-20 mb-10">
+            <div class="bg-gray-800 p-8 rounded-xl shadow-2xl border-2 border-gray-700">
+                <h2 class="text-3xl font-bold text-center text-white mb-10">
+                    Career Highlights
+                </h2>
+                <div class="flex flex-wrap justify-around items-center text-center">
+                    
+                    <!-- Stat 1: Years Experience (Red) -->
+                    <div class="w-1/2 md:w-1/4 mb-8 md:mb-0">
+                        <p class="text-5xl font-extrabold text-red-500 mb-2">5+</p>
+                        <p class="text-gray-400 text-sm">Years Experience</p>
+                    </div>
+
+                    <!-- Stat 2: Projects Completed (Blue) -->
+                    <div class="w-1/2 md:w-1/4 mb-8 md:mb-0">
+                        <p class="text-5xl font-extrabold text-blue-400 mb-2">15+</p>
+                        <p class="text-gray-400 text-sm">Projects Completed</p>
+                    </div>
+
+                    <!-- Stat 3: Certifications (Green) -->
+                    <div class="w-1/2 md:w-1/4">
+                        <p class="text-5xl font-extrabold text-green-500 mb-2">3</p>
+                        <p class="text-gray-400 text-sm">Certifications</p>
+                    </div>
+
+                    <!-- Stat 4: Users Impacted (Pink/Magenta) -->
+                    <div class="w-1/2 md:w-1/4">
+                        <p class="text-5xl font-extrabold text-pink-500 mb-2">10K+</p>
+                        <p class="text-gray-400 text-sm">Users Impacted</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- End Career Highlights -->
+    </div>
+
+    <script>
+        // --- Intersection Observer for Scroll-Triggered Animations ---
+        // This feature simulates content loading as the user scrolls, a common Netflix pattern.
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const timelineItems = document.querySelectorAll('.animated-item');
+
+            const observerOptions = {
+                root: null, // relative to the viewport
+                rootMargin: '0px',
+                threshold: 0.2 // Trigger when 20% of the item is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add the visible class to trigger the CSS transition
+                        entry.target.classList.add('is-visible');
+                        // Stop observing once it's animated
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
+
+            // Apply the observer to all items
+            timelineItems.forEach(item => {
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>
