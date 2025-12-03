@@ -1,53 +1,37 @@
-🎬 Netflix-Inspired Portfolio Website
+# 🎬 Netflix-Inspired Portfolio Website
 
-A modern, responsive portfolio website inspired by Netflix’s cinematic UI.
-This portfolio highlights my profile, skills, projects, certifications, and resume using a cinematic layout and smooth dark theme.
+This project is a fully responsive, multi-page personal portfolio designed with a cinematic, Netflix-inspired interface. It showcases my professional profile, skills, projects, and certifications through a clean, modern layout enhanced by smooth transitions, internal CSS styling, custom graphics, and a dynamic video background.
 
-⭐ Features
+---
 
-🎥 Cinematic landing section with background video
+## ⭐ Key Features
 
-🖼 High-quality UI graphics stored in /assets
+- 🎥 Cinematic landing section powered by a video background (`main.mp4`)
+- 🖼 High-quality visual elements sourced from the `/assets` directory
+- 📱 Fully responsive design optimized for all screen sizes
+- 🎨 Dark, modern theme inspired by Netflix UI/UX patterns
+- 🎴 Interactive cards for skills, projects, and recommendations
+- 🧩 Structured multi-page layout for professional presentation
+- 📝 Built using **HTML, Internal CSS, and JavaScript** — no external frameworks required
 
-📱 Fully responsive layout
+---
 
-🎨 Netflix-style modern dark theme
+## 🛠 Tech Stack
 
-🎴 Interactive skill, project & recommendation cards
+**Frontend:**
+- HTML  
+- Internal CSS  
+- JavaScript  
 
-🔗 Multi-page navigation
+**Assets Used:**
+- Images (JPG/PNG)  
+- Video (MP4)  
+- Resume (PDF)  
 
-📄 Resume preview + download option
+---
+## 📂 Project Structure
 
-⚡ No external frameworks — Pure HTML + CSS + JavaScript
-
-🛠 Tech Stack
-Languages
-
-HTML
-
-CSS (Internal)
-
-JavaScript
-
-Media
-
-JPG / PNG images
-
-MP4 video
-
-PDF resume
-
-Tools
-
-VS Code
-
-Git
-
-GitHub
-
-
-📂 Project Structure
+```
 portfolio/
 │
 ├── assets/
@@ -78,54 +62,52 @@ portfolio/
 ├── project.html
 └── skill.html
 
-📄 Pages Overview
-🔹 Home (index.html)
+```
 
-Background video
 
-Navigation bar
 
-Modern intro section
 
-🔹 Profile Page (profile.html)
 
-About me
+---
 
-Background info
+## 📄 Pages Overview
 
-Resume download
+### **Home Page**
+Cinematic video header, navigation bar, and introduction.
 
-🔹 Skills Page (skill.html)
+### **Profile Page**
+Personal summary, background information, and resume link.
 
-Skill cards
+### **Skills Page**
+Categorized skill cards with custom visuals.
 
-Clean layout
+### **Projects Page**
+Showcases completed projects with previews.
 
-🔹 Projects Page (project.html)
+### **Certifications Section**
+Grid layout displaying certification cards.
 
-Project thumbnails
+### **Hire Me Page**
+Contact options and collaboration call-to-action.
 
-Description sections
+---
 
-🔹 Hire Me (hire.html)
+## 🎥 Media Integration
 
-Contact info
+All assets are referenced using clean relative paths:
 
-Call-to-action
-
-🎥 Media Integration Example
+```html
+<img src="assets/skillscard.jpg" />
 <video src="assets/main.mp4" autoplay muted loop></video>
-<img src="assets/skillscard.jpg" alt="Skill Card" />
-<a href="assets/BilalResume (1).pdf" download>Download Resume</a>
+<a href="assets/BilalResume.pdf">Download Resume</a>
 
-🚀 How to Run Locally
 
-Just open:
+
+🚀 Usage
+
+To run locally, simply open:
 
 index.html
-
-
-No setup required.
 
 🌐 Deployment Options
 
@@ -135,9 +117,7 @@ Netlify
 
 Vercel
 
-Firebase Hosting
-
-📬 Contact
+📧 Contact
 
 Email: bilalsalmani9897@gmail.com
 
@@ -147,4 +127,6 @@ GitHub: https://github.com/bilal9897
 
 ❤️ Acknowledgment
 
-Inspired by Netflix's cinematic UI and built using clean, modern web design principles.
+Designed and developed with inspiration from Netflix's cinematic UI and modern design principles.
+
+
